@@ -25,7 +25,7 @@
         },
         emits: ["bad-input","success"],
         methods: {
-            verify (number) {
+            verifyTry (number) {
                 if (number < this.targetNumber && number > 0) {
                     this.tryCounter+= 1;
                     this.message = "Essai " + tryCounter + " (" + number +") : C'est plus!";
