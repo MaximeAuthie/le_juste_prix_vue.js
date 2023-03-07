@@ -72,7 +72,7 @@ button:hover span:after {
 
 /* LES CLASSES */
 
-.instruction-more {
+.instructionMore {
     background-color: rgba(240, 149, 2, 0.5);
     width: 100%;
     min-height: 50px;
@@ -87,7 +87,7 @@ button:hover span:after {
     padding-top: 17px;
 }
 
-.instruction-less {
+.instructionLess {
     background-color: rgba(144, 4, 74, 0.5);
     width: 100%;
     min-height: 50px;
@@ -102,7 +102,7 @@ button:hover span:after {
     padding-top: 17px;
 }
 
-.instruction-success {
+.instructionSuccess {
     background-color: rgb(40, 160, 100);
     width: 100%;
     min-height: 50px;
@@ -169,6 +169,10 @@ button:hover span:after {
 
 #tester:hover {
     background-color: rgba(144, 4, 74, 0.8);
+}
+
+#tester:disabled {
+    background-color: rgba(95, 93, 94, 0.839);
 }
 
 #recommencer:hover {

@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import Indication from './components/indication.vue'
+import IndicationDiv from './components/IndicationDiv'
 
 const app = createApp(App);
-app.component('indication ', Indication);
+app.component('div-indication', IndicationDiv);
 app.mount('#app');
