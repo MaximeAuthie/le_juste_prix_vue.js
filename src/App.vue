@@ -1,39 +1,21 @@
 <template>
   <div id="container">
     <h1>Bienvenue au juste prix !</h1>
-    <form>
-      <input
-        :class="{ badInput: showError }"
-        v-model="choosenNumber"
-        :disabled="isDisable"
-        @keyup="verifyInputKeyUp(choosenNumber)"
-        id="price"
-        placeholder="Devinez le prix! (entre 1 et 1000€)"
-        autofocus
-      />
-      <p v-if="showError" id="error">Veuillez saisir un nombre entre 1 et 1000.</p>
-      <div>
-        <button
-          @click="verifyInputButton(choosenNumber)"
-          :disabled="isDisable"
-          type="button"
-          id="tester"
-        >
-          <span>Tester</span>
-        </button>
-        <button @click="retry" type="button" id="recommencer">
-          <span>Recommencer</span>
-        </button>
-      </div>
-    </form>
+    <price-form
+      :disabled="isDisabled"
+      :error="showError"
+      @try-click="verifyInputButton"
+      @retry-click="retry"
+    ></price-form>
   </div>
   <div-indication
     v-for="aTry in tryList"
     :key="aTry.id"
-    :class="{ instructionMore: more, instructionLess: less, instructionSuccess: success }"
+    :classMore="more"
+    :classLess="less"
+    :classSuccess="success"
     :messageDiv="aTry.message"
   ></div-indication>
-  <!--Voir pour une couelur par div-->
   <!--Sert à insérer les div de classes "instructions-more", "instructions-less" ou "instructions-success" en fonction du prix saisi par l'utilisateur-->
 </template>
 
@@ -41,10 +23,8 @@
 export default {
   data() {
     return {
-      showError: false,
       targetNumber: Math.floor(Math.random() * 1000),
-      isDisable: false,
-      choosenNumber: 0,
+      isDisabled: false,
       success: false,
       more: false,
       less: false,
@@ -62,17 +42,11 @@ export default {
     verifyInputButton(input) {
       if (isNaN(input)) {
         this.showError = true;
-      } else {
-        this.showError = false;
-        this.verifyTry(input);
-      }
-    },
-
-    verifyInputKeyUp(input) {
-      if (isNaN(input)) {
+      } else if (input < 0 || input > 1000) {
         this.showError = true;
       } else {
         this.showError = false;
+        this.verifyTry(input);
       }
     },
 
@@ -105,14 +79,13 @@ export default {
         this.less = false;
         this.more = false;
         this.success = true;
-        this.isDisable = true;
+        this.isDisabled = true;
       }
       const tryObject = {
         id: this.tryCounter,
         number: number,
         message: this.message,
       };
-
       this.tryList.unshift(tryObject);
     },
 
