@@ -1,12 +1,5 @@
 <template>
-  <div
-    id="instructions"
-    :class="{
-      instructionMore: classMore,
-      instructionLess: classLess,
-      instructionSuccess: classSuccess,
-    }"
-  >
+  <div id="instructions">
     {{ messageDiv }}
   </div>
 </template>
@@ -15,18 +8,6 @@
 export default {
   props: {
     messageDiv: {
-      type: String,
-      required: true,
-    },
-    classMore: {
-      type: String,
-      required: true,
-    },
-    classLess: {
-      type: String,
-      required: true,
-    },
-    classSuccess: {
       type: String,
       required: true,
     },

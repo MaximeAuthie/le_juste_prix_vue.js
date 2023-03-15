@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent="verifyInputButton">
     <input
       :class="{ badInput: error }"
       v-model="choosenNumber"
@@ -11,7 +11,7 @@
     />
     <p v-if="error" id="error">Veuillez saisir un nombre entre 1 et 1000.</p>
     <div>
-      <button @click="eventTry" :disabled="disabled" type="button" id="tester">
+      <button :disabled="disabled" type="submit" id="tester">
         <span>Tester</span>
       </button>
       <button @click="eventRetry" type="button" id="recommencer">
@@ -51,6 +51,17 @@ export default {
       } else {
         this.error = false;
       }
+    },
+    verifyInputButton() {
+      if (isNaN(this.choosenNumber)) {
+        this.error = true;
+      } else if (this.choosenNumber <= 0 || this.choosenNumber > 1000) {
+        this.error = true;
+      } else {
+        this.error = false;
+        this.$emit("try-click", this.choosenNumber);
+      }
+      this.choosenNumber = "";
     },
   },
 };
