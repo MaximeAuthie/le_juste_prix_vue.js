@@ -29,7 +29,7 @@ body {
     background-color: rgba(17, 25, 40, 0.5);
     margin-top: 25vh; 
     transform: translateY(-30%);
-    min-height: 250px;
+    min-height: 300px;
     width: 60%;
     margin-left: auto;
     margin-right: auto;
@@ -48,7 +48,6 @@ h1 {
     flex: 10%;
     text-align: center;
     font-family: 'Space Mono', monospace;
-    background-color: aqua;
 }
 
 form {
@@ -60,7 +59,6 @@ form {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    background-color: brown;
 }
 
 /* LES CLASSE D'INSTRUCTION (IndicationDiv) */
@@ -99,7 +97,6 @@ form {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    background-color: blue;
 }
 
 /* LES BOUTONS */
@@ -158,14 +155,47 @@ button:hover:enabled span:after {
     background-color: rgba(240, 149, 2, 0.8);
 }
 
+@media screen and (min-width:2200px) {
+    #container {
+       margin-top: 20vh;
+       width: 45%;
+       min-height: 500px;
+   }
+   h1 {
+    font-size: 6em;
+   }
+   #price {
+    font-size: 2em;
+    height: 60px;
+    }
+   #instructions {
+    font-size: 2em;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 45%;
+    }
+    button {
+        font-size: 1.8em;
+        height: 60px;
+    }
+    #error {
+        font-size: 2em;
+    }
+}
 
 @media screen and (max-width:1300px) {
+     #container {
+        margin-top: 20vh;
+        width: 70%;
+    }
     h1 {
         font-size: 3em;
     }
     #instructions {
         font-size: 1.2em;
         text-align: center;
+        width: 70%;
         padding-top: 15px;
         padding-bottom: 15px;
     }
@@ -234,7 +264,7 @@ button:hover:enabled span:after {
     }
 }
 
-@media screen and (max-width:6000px) {
+@media screen and (max-width:600px) {
     #container {
         width: 90%;
     }
@@ -254,5 +284,8 @@ button:hover:enabled span:after {
     }
     button:hover:enabled span {
         padding-right: 10px;
+    }
+    #error {
+        font-size: 1em;
     }
 }
