@@ -1,5 +1,7 @@
 # le_juste_prix
 
+L'app est accessible à cette adresse : https://jade-gumdrop-25cc30.netlify.app/
+
 ## Project setup
 ```
 npm install
